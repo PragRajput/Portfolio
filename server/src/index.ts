@@ -45,13 +45,15 @@ app.post('/api/send-email', async (req: Request, res: Response) => {
 
     // Validate required fields
     if (!name || !email || !message) {
-      return res.status(400).json({ error: 'All fields are required' });
+      res.status(400).json({ error: 'All fields are required' });
+      return;
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ error: 'Invalid email format' });
+      res.status(400).json({ error: 'Invalid email format' });
+      return;
     }
 
     const timestamp = new Date().toISOString();
@@ -98,18 +100,18 @@ app.post('/api/send-email', async (req: Request, res: Response) => {
 
     console.log('Email sent successfully:', emailResponse);
 
-    return res.status(200).json({
+    res.status(200).json({
       success: true,
       message: 'Email sent successfully',
       data: emailResponse.data
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Failed to send email:', error);
 
-    return res.status(500).json({
+    res.status(500).json({
       error: 'Failed to send email',
-      details: error?.message || 'Unknown error occurred'
+      details: error instanceof Error ? error.message : 'Unknown error occurred'
     });
   }
 });
