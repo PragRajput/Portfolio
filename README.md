@@ -1,10 +1,12 @@
 # Portfolio — Monorepo
 
-Personal portfolio with a React frontend deployed on Firebase and an Express API deployed on Vercel.
+Personal portfolio with a React frontend and an Express API, both deployed on Vercel.
+
+**Live:** [my-portfolio-7598c.web.app](https://my-portfolio-7598c.web.app/)
 
 ```
 Portfolio/
-├── frontend/   React + Vite + TypeScript → Firebase Hosting
+├── frontend/   React + Vite + TypeScript → Vercel
 └── server/     Express + TypeScript      → Vercel Serverless
 ```
 
@@ -47,18 +49,18 @@ Both pipelines trigger only when their respective directory changes.
 
 | Workflow | Trigger | Deploy target |
 |---|---|---|
-| `frontend.yml` | push to `frontend/**` | Firebase Hosting |
+| `frontend.yml` | push to `frontend/**` | Vercel |
 | `server.yml` | push to `server/**` | Vercel |
 
 ### Required GitHub Secrets
 
 | Secret | Where |
 |---|---|
-| `FIREBASE_SERVICE_ACCOUNT` | Firebase Console → Project Settings → Service Accounts |
 | `VITE_API_URL` | Your Vercel server URL |
 | `VERCEL_TOKEN` | vercel.com/account/tokens |
-| `VERCEL_ORG_ID` | `vercel whoami --token <token>` |
-| `VERCEL_PROJECT_ID` | Vercel project settings → General |
+| `VERCEL_ORG_ID` | Vercel account settings |
+| `VERCEL_FE_PROJECT_ID` | Vercel frontend project settings |
+| `VERCEL_PROJECT_ID` | Vercel server project settings |
 
 > Set all secrets at: **GitHub repo → Settings → Secrets and variables → Actions**
 
