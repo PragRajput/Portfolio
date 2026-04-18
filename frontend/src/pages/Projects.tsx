@@ -5,7 +5,7 @@ import type { Project } from '@/types';
 const projects: Project[] = [
   {
     id: '1',
-    title: 'SuprConfig - HubSpot Deployment Platform',
+    title: 'SuprConfig — HubSpot Deployment Platform',
     description: 'Enterprise SaaS product by SuprDense enabling one-click HubSpot deployments and asset management. Built comprehensive platform for importing and deploying HubSpot assets (workflows, templates, lists, forms) across multiple portals. Features include pre-built module library, sandbox-to-production transfers, and automated deployment system delivering 5x faster HubSpot implementations.',
     image: '/projects/supr-config.svg',
     technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Firebase Functions', 'Firebase Hosting', 'Firebase Database', 'Firebase Storage', 'Vertex AI', 'Cloud Tasks', 'Stripe', 'HubSpot API'],
@@ -16,7 +16,7 @@ const projects: Project[] = [
     title: 'TrueDialog SMS Platform',
     description: 'Enterprise SMS messaging platform for US-based client supporting one-to-one messaging, mass SMS campaigns (up to 100k contacts), workflow automation, and template-based messaging with batch processing capabilities for 10k+ contacts.',
     image: '/projects/truedialog.png',
-    technologies: ['React', 'Node.js', 'TypeScript', 'SMS API', 'Workflows', 'Azure Functions', 'Azure App Service', 'Cosmos DB', 'SignalR', 'Azure Key Vault', 'Service Bus'],
+    technologies: ['React', 'Node.js', 'TypeScript', 'SMS API', 'Azure Functions', 'Azure App Service', 'Cosmos DB', 'SignalR', 'Azure Key Vault', 'Service Bus'],
     demoUrl: 'https://www.truedialog.com/',
   },
   {
@@ -32,196 +32,155 @@ const projects: Project[] = [
     title: 'Zoho & HubSpot Multi-Org Integration',
     description: 'Developed scalable integration supporting multiple Zoho organizations with HubSpot. Implemented 2-way data synchronization, multi-tenant architecture, and automated data mapping across different organizational structures.',
     image: '/placeholder-project.jpg',
-    technologies: ['TypeScript', 'Python', 'FastAPI', 'Zoho API', 'HubSpot API', 'Multi-tenant', 'Webhooks', 'Heroku'],
+    technologies: ['TypeScript', 'Python', 'FastAPI', 'Zoho API', 'HubSpot API', 'Webhooks', 'Heroku'],
   },
   {
     id: '5',
     title: 'Educational Learning Management Platform',
-    description: 'Comprehensive 4-tier learning platform with hierarchical access: Super Admin creates interactive lessons with drag-and-drop UI and gamified learning modules; School Admin manages institutional data, teachers, and students; Teachers customize lessons, mark attendance, and review leave requests; Students access assignments, personalized feedback, and submit leave applications with real-time dashboard updates across all hierarchy levels.',
+    description: 'Comprehensive 4-tier learning platform with hierarchical access: Super Admin creates interactive lessons with drag-and-drop UI; School Admin manages teachers and students; Teachers customize lessons and mark attendance; Students access assignments and submit feedback with real-time dashboard updates.',
     image: '/placeholder-project.jpg',
-    technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Express', 'Drag & Drop', 'Role-Based Access', 'Real-time Dashboard'],
+    technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Express', 'Role-Based Access', 'Real-time Dashboard'],
   },
   {
     id: '6',
-    title: 'SFTP x HubSpot Data Migration',
-    description: 'Built for French-based client: Enterprise-scale data processing system using Python FastAPI handling 200,000-300,000 daily records from 3 files. Automated daily cron jobs fetch files from SFTP server, upload to GCP Cloud Storage, perform comprehensive data cleaning including de-duplication, formatting, and null data handling, then migrate processed data to HubSpot via batch processing. Entire pipeline hosted on GCP infrastructure.',
+    title: 'SFTP × HubSpot Data Migration',
+    description: 'Enterprise-scale data processing system using Python FastAPI handling 200,000–300,000 daily records. Automated cron jobs fetch files from SFTP, upload to GCP Cloud Storage, perform data cleaning including de-duplication and null handling, then migrate to HubSpot via batch processing.',
     image: '/placeholder-project.jpg',
-    technologies: ['Python', 'FastAPI', 'GCP Cloud Storage', 'GCP App Engine', 'SFTP', 'HubSpot API', 'Cron Jobs', 'Batch Processing', 'Data Cleaning'],
+    technologies: ['Python', 'FastAPI', 'GCP Cloud Storage', 'GCP App Engine', 'SFTP', 'HubSpot API', 'Cron Jobs', 'Batch Processing'],
   },
   {
     id: '7',
-    title: 'BlendsBooking Integration Platform',
-    description: 'Created comprehensive booking integration system syncing reservation data with HubSpot across multiple objects including contacts, orders, products, and cancellations. Real-time booking management and automated workflow triggers.',
+    title: 'BlendsBooking Integration',
+    description: 'Comprehensive booking integration system syncing reservation data with HubSpot across contacts, orders, products, and cancellations. Real-time booking management with automated workflow triggers.',
     image: '/placeholder-project.jpg',
     technologies: ['React', 'Node.js', 'HubSpot API', 'Booking System', 'Nordhost'],
   },
   {
     id: '8',
-    title: 'Telegram Integration',
-    description: 'Embedded Telegram inside HubSpot CRM for seamless communication. Generates deal-based Telegram groups automatically to streamline collaboration across sales and business development teams.',
+    title: 'Telegram × HubSpot CRM',
+    description: 'Embedded Telegram inside HubSpot CRM for seamless team communication. Automatically generates deal-based Telegram groups to streamline collaboration across sales and business development.',
     image: '/placeholder-project.jpg',
-    technologies: ['Telegram API', 'HubSpot API', 'Node.js', 'TypeScript', 'CRM Integration', 'Automated Workflows'],
+    technologies: ['Telegram API', 'HubSpot API', 'Node.js', 'TypeScript', 'Automated Workflows'],
   },
 ];
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>( null );
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-secondary/20 to-background">
-      <div className="container mx-auto px-4">
-        <motion.h2
+    <section id="projects" className="py-24 border-b border-border">
+      <div className="w-full mx-auto px-8 max-w-screen-2xl">
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
+          className="text-sm font-medium text-primary uppercase tracking-widest mb-4"
         >
-          Featured Projects
+          Projects
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold tracking-tight mb-12"
+        >
+          Selected work
         </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {projects.map( ( project, index ) => (
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5, scale: 1.02 }}
-              onClick={() => setSelectedProject( project )}
-              className="bg-card rounded-xl border border-border shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all group cursor-pointer p-5 flex flex-col min-h-[160px]"
+              onClick={() => setSelectedProject(project)}
+              className="bg-card border border-border rounded-lg p-5 cursor-pointer group hover:border-primary/50 transition-colors flex flex-col gap-3"
             >
-              <div className="flex-1 flex flex-col">
-                <h3 className="text-base font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
-                  {project.title}
-                </h3>
-                <div className="mt-auto">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.technologies.slice( 0, 3 ).map( ( tech ) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 bg-gradient-to-r from-primary/10 to-purple-600/10 text-primary rounded-md text-xs font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ) )}
-                    {project.technologies.length > 3 && (
-                      <span className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-medium">
-                        +{project.technologies.length - 3} more
-                      </span>
-                    )}
-                  </div>
-                </div>
+              <h3 className="font-medium text-sm text-foreground group-hover:text-primary transition-colors leading-snug">
+                {project.title}
+              </h3>
+              <div className="flex flex-wrap gap-1.5 mt-auto">
+                {project.technologies.slice(0, 3).map((tech) => (
+                  <span key={tech} className="px-2 py-0.5 bg-secondary text-muted-foreground rounded text-xs border border-border">
+                    {tech}
+                  </span>
+                ))}
+                {project.technologies.length > 3 && (
+                  <span className="px-2 py-0.5 text-muted-foreground text-xs">
+                    +{project.technologies.length - 3}
+                  </span>
+                )}
               </div>
             </motion.div>
-          ) )}
+          ))}
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject( null )}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              onClick={( e ) => e.stopPropagation()}
-              className="bg-card rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-primary/20 shadow-2xl relative"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-card border border-border rounded-lg max-w-2xl w-full max-h-[85vh] overflow-y-auto"
             >
-              {/* Close button */}
-              <button
-                onClick={() => setSelectedProject( null )}
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-destructive hover:text-destructive-foreground transition-colors flex items-center justify-center"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+              <div className="flex items-start justify-between p-6 border-b border-border">
+                <h2 className="text-lg font-semibold pr-4">{selectedProject.title}</h2>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="text-muted-foreground hover:text-foreground transition-colors shrink-0"
                 >
-                  <path d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
 
-              {/* Project details */}
-              <div className="p-6 md:p-8">
-                {/* Title */}
-                <motion.h2
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
-                >
-                  {selectedProject.title}
-                </motion.h2>
+              <div className="p-6 space-y-6">
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  {selectedProject.description}
+                </p>
 
-                {/* Description */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="mb-6"
-                >
-                  <h3 className="text-lg font-semibold mb-2">Project Overview</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {selectedProject.description}
-                  </p>
-                  {selectedProject.demoUrl && (
-                    <a
-                      href={selectedProject.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 mt-3 text-primary hover:text-primary/80 font-medium text-sm group transition-colors"
-                    >
-                      <span>Visit live project</span>
-                      <svg
-                        className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  )}
-                </motion.div>
+                {selectedProject.demoUrl && (
+                  <a
+                    href={selectedProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 text-sm font-medium transition-colors"
+                  >
+                    Visit project
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                )}
 
-                {/* Technologies */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <h3 className="text-lg font-semibold mb-3">Technologies and Services</h3>
+                <div>
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-3">Technologies</p>
                   <div className="flex flex-wrap gap-2">
-                    {selectedProject.technologies.map( ( tech, index ) => (
-                      <motion.span
+                    {selectedProject.technologies.map((tech) => (
+                      <span
                         key={tech}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.4 + index * 0.05 }}
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        className="px-4 py-2 bg-gradient-to-r from-primary/10 to-purple-600/10 text-primary rounded-lg text-sm font-medium border border-primary/20 hover:border-primary/40 transition-all"
+                        className="px-2.5 py-1 bg-secondary text-muted-foreground rounded text-xs font-medium border border-border"
                       >
                         {tech}
-                      </motion.span>
-                    ) )}
+                      </span>
+                    ))}
                   </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </motion.div>
