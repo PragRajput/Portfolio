@@ -2,7 +2,7 @@
 
 Personal portfolio with a React frontend on Firebase Hosting and an Express API on Vercel.
 
-**Live:** [my-portfolio-7598c.web.app](https://my-portfolio-7598c.web.app/)
+**Live:** <a href="https://my-portfolio-7598c.web.app/" target="_blank">my-portfolio-7598c.web.app</a>
 
 ```
 Portfolio/
