@@ -49,6 +49,20 @@ const projects: Project[] = [
     demoUrl: 'https://circleg.world/home.html',
   },
   {
+    id: '9',
+    title: 'DailyLog — Work Tracking App',
+    description: 'Personal work tracking app for developers to log daily tasks, track time per project, and browse history via a calendar view. Features AI-powered standup summaries via Gemini API, Google OAuth sign-in, and profile customization with Cloudinary avatar uploads.',
+    image: '/placeholder-project.jpg',
+    technologies: ['Next.js 14', 'TypeScript', 'Express', 'MongoDB', 'Google OAuth', 'Gemini API', 'Cloudinary', 'Tailwind CSS', 'Framer Motion'],
+  },
+  {
+    id: '10',
+    title: 'DailyPing — VS Code Dev Tracker',
+    description: 'VS Code extension that silently tracks coding activity in the background and generates AI-powered standup summaries with zero interruption. Local dashboard shows hourly productivity charts and per-project language breakdown. Fully private — no cloud sync, no telemetry, all data stays on your machine.',
+    image: '/placeholder-project.jpg',
+    technologies: ['VS Code API', 'TypeScript', 'Express', 'React', 'Vite', 'Redux Toolkit', 'Recharts', 'Gemini API', 'esbuild'],
+  },
+  {
     id: '7',
     title: 'Zoho & HubSpot Multi-Org Integration',
     description: 'Developed scalable integration supporting multiple Zoho organizations with HubSpot. Implemented 2-way data synchronization, multi-tenant architecture, and automated data mapping across different organizational structures.',
