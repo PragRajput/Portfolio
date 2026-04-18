@@ -1,12 +1,12 @@
 # Portfolio — Monorepo
 
-Personal portfolio with a React frontend and an Express API, both deployed on Vercel.
+Personal portfolio with a React frontend on Firebase Hosting and an Express API on Vercel.
 
 **Live:** [my-portfolio-7598c.web.app](https://my-portfolio-7598c.web.app/)
 
 ```
 Portfolio/
-├── frontend/   React + Vite + TypeScript → Vercel
+├── frontend/   React + Vite + TypeScript → Firebase Hosting
 └── server/     Express + TypeScript      → Vercel Serverless
 ```
 
@@ -49,22 +49,21 @@ Both pipelines trigger only when their respective directory changes.
 
 | Workflow | Trigger | Deploy target |
 |---|---|---|
-| `frontend.yml` | push to `frontend/**` | Vercel |
-| `server.yml` | push to `server/**` | Vercel |
+| `frontend.yml` | push to `frontend/**` | Firebase Hosting |
+| server | push to `server/**` | Vercel (direct GitHub integration) |
 
 ### Required GitHub Secrets
 
-| Secret | Where |
-|---|---|
-| `VITE_API_URL` | Your Vercel server URL |
-| `VERCEL_TOKEN` | vercel.com/account/tokens |
-| `VERCEL_ORG_ID` | Vercel account settings |
-| `VERCEL_FE_PROJECT_ID` | Vercel frontend project settings |
-| `VERCEL_PROJECT_ID` | Vercel server project settings |
+| Secret | Used by | Where to get it |
+|---|---|---|
+| `FIREBASE_SERVICE_ACCOUNT` | frontend | Firebase Console → Project Settings → Service Accounts → Generate key |
+| `VITE_API_URL` | frontend build | `https://my-portfolio-server-11ub.vercel.app` |
 
-> Set all secrets at: **GitHub repo → Settings → Secrets and variables → Actions**
+> Server env vars (`RESEND_API_KEY`, `FROM_EMAIL`, etc.) are managed directly in Vercel dashboard → project → Settings → Environment Variables
+
+> Add secrets at: **GitHub repo → Settings → Secrets and variables → Actions**
 
 ## Tech Stack
 
-**Frontend** — React 19, Vite, TypeScript, Tailwind CSS, Framer Motion, shadcn/ui  
-**Backend** — Express 4, TypeScript, Resend (email), Vercel serverless
+**Frontend** — React 19, Vite, TypeScript, Tailwind CSS, Framer Motion, shadcn/ui → Firebase Hosting  
+**Backend** — Express 4, TypeScript, Resend (email) → Vercel Serverless
