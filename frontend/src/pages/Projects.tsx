@@ -5,17 +5,20 @@ import type { Project } from '@/types';
 const projects: Project[] = [
   {
     id: '1',
-    title: 'Synker — CRM Integration Platform',
-    description: 'Bidirectional sync engine across HubSpot, Zoho, Salesforce, and Cin7 with real-time webhooks, AI duplicate detection, and a multi-agent pipeline (LangGraph + Claude) that generates CRM connector code from an API docs URL. BullMQ + Redis for async processing with retry and sync-loop prevention.',
+    title: 'Synker — Integration Automation Platform',
+    description: 'Webhook-driven workflow engine for real-time CRM/ERP sync across HubSpot, QuickBooks, Close CRM, Zoho, and Cin7. Workflows are defined as typed step graphs (get_record, lookup, branch, iterate, update_record) scoped per connection — preventing O(n) webhook fan-out. Ships a conversational AI builder (Claude) backed by a provider knowledge base encoding connector field paths, upsert patterns, and failure modes. Includes end-to-end bidirectional HubSpot ↔ QuickBooks sync with QB invoice write-back and loop-guard branch patterns. Custom HubSpot property detection surfaces missing fields before they silently fail at runtime. BullMQ + Redis for async processing with retry; OAuth 2.0 token refresh handled transparently per connector.',
     image: '/placeholder-project.jpg',
-    technologies: ['Node.js', 'TypeScript', 'LangGraph', 'Claude API', 'BullMQ', 'Redis', 'HubSpot API', 'Zoho API', 'Salesforce API', 'Webhooks'],
+    technologies: ['Node.js', 'TypeScript', 'Python', 'FastAPI', 'LangGraph', 'Claude API', 'Tool Calling', 'Next.js', 'BullMQ', 'Redis', 'MongoDB', 'Express', 'OAuth 2.0', 'Webhooks'],
+    demoUrl: 'https://synker-landing-gq88.vercel.app/',
+    personal: true,
   },
   {
     id: '2',
-    title: 'HubSpot CRM Audit Agent',
+    title: 'HubMetrics — CRM Audit Agent',
     description: 'AI-powered multi-agent audit platform (orchestrator → narrator pipeline) running 25+ health checks across HubSpot Sales, Marketing, and Service Hub. Uses Claude AI to generate prioritized, severity-labeled reports with PDF export.',
     image: '/placeholder-project.jpg',
-    technologies: ['Claude API', 'LangGraph', 'Node.js', 'TypeScript', 'HubSpot API', 'Multi-Agent Pipelines', 'PDF Export'],
+    technologies: ['Claude API', 'LangGraph', 'Tool Calling', 'Node.js', 'TypeScript', 'Express', 'MongoDB'],
+    personal: true,
   },
   {
     id: '3',
@@ -41,7 +44,7 @@ const projects: Project[] = [
     demoUrl: 'https://www.truedialog.com/',
   },
   {
-    id: '6',
+    id: 'p6',
     title: 'Cin7 & HubSpot Integration',
     description: 'Built bi-directional data synchronization between Cin7 inventory management and HubSpot CRM. Automated order creation, invoice calculations, and real-time updates using webhooks. Seamless cross-platform workflow automation.',
     image: '/placeholder-project.jpg',
@@ -54,6 +57,7 @@ const projects: Project[] = [
     description: 'Personal work tracking app for developers to log daily tasks, track time per project, and browse history via a calendar view. Features AI-powered standup summaries via Gemini API, Google OAuth sign-in, and profile customization with Cloudinary avatar uploads.',
     image: '/placeholder-project.jpg',
     technologies: ['Next.js 14', 'TypeScript', 'Express', 'MongoDB', 'Google OAuth', 'Gemini API', 'Cloudinary', 'Tailwind CSS', 'Framer Motion'],
+    personal: true,
   },
   {
     id: '10',
@@ -61,37 +65,38 @@ const projects: Project[] = [
     description: 'VS Code extension that silently tracks coding activity in the background and generates AI-powered standup summaries with zero interruption. Local dashboard shows hourly productivity charts and per-project language breakdown. Fully private — no cloud sync, no telemetry, all data stays on your machine.',
     image: '/placeholder-project.jpg',
     technologies: ['VS Code API', 'TypeScript', 'Express', 'React', 'Vite', 'Redux Toolkit', 'Recharts', 'Gemini API', 'esbuild'],
+    personal: true,
   },
   {
-    id: '7',
+    id: 'p7',
     title: 'Zoho & HubSpot Multi-Org Integration',
     description: 'Developed scalable integration supporting multiple Zoho organizations with HubSpot. Implemented 2-way data synchronization, multi-tenant architecture, and automated data mapping across different organizational structures.',
     image: '/placeholder-project.jpg',
     technologies: ['TypeScript', 'Python', 'FastAPI', 'Zoho API', 'HubSpot API', 'Webhooks', 'Heroku'],
   },
   {
-    id: '8',
+    id: 'p8',
     title: 'Educational Learning Management Platform',
     description: 'Comprehensive 4-tier learning platform with hierarchical access: Super Admin creates interactive lessons with drag-and-drop UI; School Admin manages teachers and students; Teachers customize lessons and mark attendance; Students access assignments and submit feedback with real-time dashboard updates.',
     image: '/placeholder-project.jpg',
     technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Express', 'Role-Based Access', 'Real-time Dashboard'],
   },
   {
-    id: '6',
+    id: 'p11',
     title: 'SFTP × HubSpot Data Migration',
     description: 'Enterprise-scale data processing system using Python FastAPI handling 200,000–300,000 daily records. Automated cron jobs fetch files from SFTP, upload to GCP Cloud Storage, perform data cleaning including de-duplication and null handling, then migrate to HubSpot via batch processing.',
     image: '/placeholder-project.jpg',
     technologies: ['Python', 'FastAPI', 'GCP Cloud Storage', 'GCP App Engine', 'SFTP', 'HubSpot API', 'Cron Jobs', 'Batch Processing'],
   },
   {
-    id: '7',
+    id: 'p12',
     title: 'BlendsBooking Integration',
     description: 'Comprehensive booking integration system syncing reservation data with HubSpot across contacts, orders, products, and cancellations. Real-time booking management with automated workflow triggers.',
     image: '/placeholder-project.jpg',
     technologies: ['React', 'Node.js', 'HubSpot API', 'Booking System', 'Nordhost'],
   },
   {
-    id: '8',
+    id: 'p13',
     title: 'Telegram × HubSpot CRM',
     description: 'Embedded Telegram inside HubSpot CRM for seamless team communication. Automatically generates deal-based Telegram groups to streamline collaboration across sales and business development.',
     image: '/placeholder-project.jpg',
@@ -99,10 +104,26 @@ const projects: Project[] = [
   },
 ];
 
+type Tab = 'all' | 'personal' | 'work';
+
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeTab, setActiveTab] = useState<Tab>('all');
   const [showAll, setShowAll] = useState(false);
-  const visibleProjects = showAll ? projects : projects.slice(0, 6);
+
+  const filteredProjects = projects.filter((p) => {
+    if (activeTab === 'personal') return p.personal === true;
+    if (activeTab === 'work') return !p.personal;
+    return true;
+  });
+
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
+
+  const tabs: { key: Tab; label: string }[] = [
+    { key: 'all', label: 'All' },
+    { key: 'personal', label: 'Personal' },
+    { key: 'work', label: 'Work' },
+  ];
 
   return (
     <section id="projects" className="pt-16 pb-4 border-b border-border">
@@ -116,15 +137,38 @@ export function Projects() {
         >
           Projects
         </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold tracking-tight mb-12"
-        >
-          Selected work
-        </motion.h2>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold tracking-tight"
+          >
+            Selected work
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-1 p-1 bg-secondary rounded-lg border border-border self-start sm:self-auto"
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => { setActiveTab(tab.key); setShowAll(false); }}
+                className={`px-4 py-1.5 rounded-md text-xs font-medium transition-all duration-200 ${
+                  activeTab === tab.key
+                    ? 'bg-card text-foreground shadow-sm border border-border'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {visibleProjects.map((project, index) => (
@@ -164,13 +208,13 @@ export function Projects() {
           ))}
         </div>
 
-        {projects.length > 6 && (
+        {filteredProjects.length > 6 && (
           <div className="flex justify-center mt-8 mb-4">
             <button
               onClick={() => setShowAll(!showAll)}
               className="px-6 py-2.5 border border-border rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
             >
-              {showAll ? 'Show less' : `Show ${projects.length - 6} more projects`}
+              {showAll ? 'Show less' : `Show ${filteredProjects.length - 6} more projects`}
             </button>
           </div>
         )}
@@ -205,7 +249,7 @@ export function Projects() {
                 </button>
               </div>
 
-              <div className="px-6 pb-6 space-y-5">
+              <div className={`px-6 space-y-5 ${selectedProject.demoUrl ? 'pb-4' : 'pb-6'}`}>
                 <p className="text-muted-foreground leading-relaxed text-sm">
                   {selectedProject.description}
                 </p>
@@ -223,21 +267,23 @@ export function Projects() {
                     ))}
                   </div>
                 </div>
+              </div>
 
-                {selectedProject.demoUrl && (
+              {selectedProject.demoUrl && (
+                <div className="flex items-center justify-end px-6 py-3 border-t border-border">
                   <a
                     href={selectedProject.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
+                    className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border hover:border-primary/60 bg-secondary/50 hover:bg-primary/5 text-xs font-medium text-foreground hover:text-primary transition-all duration-200"
                   >
                     Visit project
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <svg className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
                     </svg>
                   </a>
-                )}
-              </div>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}
