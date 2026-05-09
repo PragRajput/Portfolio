@@ -4,6 +4,15 @@ import type { Project } from '@/types';
 
 const projects: Project[] = [
   {
+    id: '11',
+    title: 'LexigoAI — Vocabulary Learning App',
+    description: 'AI-powered vocabulary and language learning app. Surfaces 3 fresh AI-generated words daily, lets you search or generate any word with definitions, synonyms, antonyms, and translations. Quiz yourself across 4 modes (flashcard, multiple choice, fill-in-blank, match) plus a Random AI Quiz. Per-account word and sentence collections with full attempt history.',
+    image: '/placeholder-project.jpg',
+    technologies: ['Next.js 16', 'React 19', 'Supabase', 'OpenRouter', 'Zustand', 'Tailwind CSS v4', 'shadcn/ui', 'Netlify'],
+    demoUrl: 'https://lexigoai.netlify.app/',
+    personal: true,
+  },
+  {
     id: '1',
     title: 'Synker — Integration Automation Platform',
     description: 'Webhook-driven workflow engine for real-time CRM/ERP sync across HubSpot, QuickBooks, Close CRM, Zoho, and Cin7. Workflows are defined as typed step graphs (get_record, lookup, branch, iterate, update_record) scoped per connection — preventing O(n) webhook fan-out. Ships a conversational AI builder (Claude) backed by a provider knowledge base encoding connector field paths, upsert patterns, and failure modes. Includes end-to-end bidirectional HubSpot ↔ QuickBooks sync with QB invoice write-back and loop-guard branch patterns. Custom HubSpot property detection surfaces missing fields before they silently fail at runtime. BullMQ + Redis for async processing with retry; OAuth 2.0 token refresh handled transparently per connector.',
