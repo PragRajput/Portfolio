@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const featured = {
   title: 'AI & Agents',
-  skills: ['Claude API', 'LangGraph', 'LangChain', 'Prompt Engineering', 'Multi-Agent Pipelines', 'RAG'],
+  skills: ['Claude API', 'LangGraph', 'LangChain', 'OpenRouter', 'Prompt Engineering', 'Multi-Agent Pipelines', 'RAG'],
 };
 
 const skillCategories = [
@@ -12,11 +12,11 @@ const skillCategories = [
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'WebSockets'],
+    skills: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'WebSockets', 'Zustand', 'shadcn/ui'],
   },
   {
     title: 'Databases & Queues',
-    skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Mongoose', 'BullMQ', 'Cosmos DB'],
+    skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Supabase', 'Mongoose', 'BullMQ', 'Cosmos DB'],
   },
   {
     title: 'Integration & APIs',
@@ -28,7 +28,7 @@ const skillCategories = [
   },
   {
     title: 'DevOps & Tooling',
-    skills: ['Git', 'GitHub', 'Docker', 'CI/CD', 'Vercel', 'Heroku'],
+    skills: ['Git', 'GitHub', 'Docker', 'CI/CD', 'Vercel', 'Netlify', 'Heroku'],
   },
 ];
 
