@@ -66,6 +66,7 @@ const projects: Project[] = [
     description: 'Personal work tracking app for developers to log daily tasks, track time per project, and browse history via a calendar view. Features AI-powered standup summaries via Gemini API, Google OAuth sign-in, and profile customization with Cloudinary avatar uploads.',
     image: '/placeholder-project.jpg',
     technologies: ['Next.js 14', 'TypeScript', 'Express', 'MongoDB', 'Google OAuth', 'Gemini API', 'Cloudinary', 'Tailwind CSS', 'Framer Motion'],
+    demoUrl: 'https://daily-log-ruby-omega.vercel.app',
     personal: true,
   },
   {
