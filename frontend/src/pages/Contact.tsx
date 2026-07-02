@@ -51,7 +51,7 @@ export function Contact() {
       });
       const data = await response.json();
       if (response.ok) {
-        setSubmitStatus({ type: 'success', message: "Message sent. I'll get back to you soon." });
+        setSubmitStatus({ type: 'success', message: "Thanks for reaching out — I'll get back to you within 24 hours." });
         setFormData({ name: '', email: '', message: '' });
         setErrors({});
         setTouched({ name: false, email: false, message: false });
@@ -204,52 +204,125 @@ export function Contact() {
               exit={{ opacity: 0, y: 24 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-card border border-border rounded-xl w-full max-w-lg"
+              className="relative bg-card border border-border rounded-xl w-full max-w-lg overflow-hidden"
             >
-              <div className="flex items-center justify-between px-6 pt-6 pb-4">
-                <h3 className="text-base font-semibold">Send a Message</h3>
-                <button onClick={closeModal} className="text-muted-foreground hover:text-foreground transition-colors p-1 hover:bg-secondary rounded-md">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
+              <button
+                onClick={closeModal}
+                aria-label="Close"
+                className="absolute top-4 right-4 z-10 text-muted-foreground hover:text-foreground transition-colors p-1 hover:bg-secondary rounded-md"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
 
-              <form onSubmit={handleSubmit} className="px-6 pb-6 space-y-4">
-                <div>
-                  <div className="flex justify-between mb-1.5">
-                    <label htmlFor="name" className="text-sm font-medium">Name</label>
-                    {errors.name && touched.name && <span className="text-xs text-destructive">{errors.name}</span>}
-                  </div>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} onBlur={handleBlur} className={inputClass('name')} placeholder="Your name" />
-                </div>
+              <AnimatePresence mode="wait">
+                {submitStatus.type === 'success' ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="flex flex-col items-center text-center px-6 py-12"
+                  >
+                    <div className="relative mb-6">
+                      <motion.span
+                        className="absolute inset-0 rounded-full bg-primary/20"
+                        initial={{ scale: 0.8, opacity: 0.7 }}
+                        animate={{ scale: 1.9, opacity: 0 }}
+                        transition={{ duration: 0.9, delay: 0.1, ease: 'easeOut' }}
+                      />
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: 'spring', stiffness: 260, damping: 18, delay: 0.05 }}
+                        className="relative w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center"
+                      >
+                        <svg className="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+                          <motion.path
+                            d="M5 13l4 4L19 7"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 0.4, delay: 0.25, ease: 'easeOut' }}
+                          />
+                        </svg>
+                      </motion.div>
+                    </div>
+                    <h3 className="text-xl font-bold tracking-tight mb-2">Message sent!</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-7">
+                      {submitStatus.message}
+                    </p>
+                    <button
+                      onClick={closeModal}
+                      className="px-8 py-2.5 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors"
+                    >
+                      Done
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="px-6 pt-6 pb-4">
+                      <h3 className="text-base font-semibold">Send a Message</h3>
+                    </div>
 
-                <div>
-                  <div className="flex justify-between mb-1.5">
-                    <label htmlFor="email" className="text-sm font-medium">Email</label>
-                    {errors.email && touched.email && <span className="text-xs text-destructive">{errors.email}</span>}
-                  </div>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleBlur} className={inputClass('email')} placeholder="you@example.com" />
-                </div>
+                    <form onSubmit={handleSubmit} className="px-6 pb-6 space-y-4">
+                      <div>
+                        <div className="flex justify-between mb-1.5">
+                          <label htmlFor="name" className="text-sm font-medium">Name</label>
+                          {errors.name && touched.name && <span className="text-xs text-destructive">{errors.name}</span>}
+                        </div>
+                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} onBlur={handleBlur} className={inputClass('name')} placeholder="Your name" />
+                      </div>
 
-                <div>
-                  <div className="flex justify-between mb-1.5">
-                    <label htmlFor="message" className="text-sm font-medium">Message</label>
-                    {errors.message && touched.message && <span className="text-xs text-destructive">{errors.message}</span>}
-                  </div>
-                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} onBlur={handleBlur} rows={4} className={inputClass('message')} placeholder="Tell me about your project..." />
-                </div>
+                      <div>
+                        <div className="flex justify-between mb-1.5">
+                          <label htmlFor="email" className="text-sm font-medium">Email</label>
+                          {errors.email && touched.email && <span className="text-xs text-destructive">{errors.email}</span>}
+                        </div>
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleBlur} className={inputClass('email')} placeholder="you@example.com" />
+                      </div>
 
-                {submitStatus.type && (
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={`text-sm ${submitStatus.type === 'success' ? 'text-primary' : 'text-destructive'}`}>
-                    {submitStatus.message}
-                  </motion.p>
+                      <div>
+                        <div className="flex justify-between mb-1.5">
+                          <label htmlFor="message" className="text-sm font-medium">Message</label>
+                          {errors.message && touched.message && <span className="text-xs text-destructive">{errors.message}</span>}
+                        </div>
+                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} onBlur={handleBlur} rows={4} className={inputClass('message')} placeholder="Tell me about your project..." />
+                      </div>
+
+                      {submitStatus.type === 'error' && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -4 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="flex items-start gap-2.5 rounded-lg border border-destructive/30 bg-destructive/10 px-3.5 py-3"
+                        >
+                          <svg className="w-4 h-4 mt-0.5 shrink-0 text-destructive" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                          </svg>
+                          <p className="text-sm text-destructive">{submitStatus.message}</p>
+                        </motion.div>
+                      )}
+
+                      <button type="submit" disabled={isSubmitting} className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        {isSubmitting && (
+                          <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          </svg>
+                        )}
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                      </button>
+                    </form>
+                  </motion.div>
                 )}
-
-                <button type="submit" disabled={isSubmitting} className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
+              </AnimatePresence>
             </motion.div>
           </motion.div>
         )}
