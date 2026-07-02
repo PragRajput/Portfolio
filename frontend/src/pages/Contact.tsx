@@ -85,7 +85,7 @@ export function Contact() {
   };
 
   const inputClass = (field: 'name' | 'email' | 'message') =>
-    `w-full px-4 py-3 bg-background border rounded-lg text-sm transition-colors outline-none focus:ring-2 placeholder:text-muted-foreground/50 ${
+    `w-full px-4 py-3 bg-background border rounded-lg text-sm transition-colors outline-none focus:ring-2 placeholder:text-muted-foreground/50 disabled:opacity-60 disabled:cursor-not-allowed ${
       errors[field] && touched[field]
         ? 'border-destructive focus:ring-destructive/20'
         : 'border-border focus:border-primary focus:ring-primary/10'
@@ -278,7 +278,7 @@ export function Contact() {
                           <label htmlFor="name" className="text-sm font-medium">Name</label>
                           {errors.name && touched.name && <span className="text-xs text-destructive">{errors.name}</span>}
                         </div>
-                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} onBlur={handleBlur} className={inputClass('name')} placeholder="Your name" />
+                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} onBlur={handleBlur} disabled={isSubmitting} className={inputClass('name')} placeholder="Your name" />
                       </div>
 
                       <div>
@@ -286,7 +286,7 @@ export function Contact() {
                           <label htmlFor="email" className="text-sm font-medium">Email</label>
                           {errors.email && touched.email && <span className="text-xs text-destructive">{errors.email}</span>}
                         </div>
-                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleBlur} className={inputClass('email')} placeholder="you@example.com" />
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleBlur} disabled={isSubmitting} className={inputClass('email')} placeholder="you@example.com" />
                       </div>
 
                       <div>
@@ -294,7 +294,7 @@ export function Contact() {
                           <label htmlFor="message" className="text-sm font-medium">Message</label>
                           {errors.message && touched.message && <span className="text-xs text-destructive">{errors.message}</span>}
                         </div>
-                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} onBlur={handleBlur} rows={4} className={inputClass('message')} placeholder="Tell me about your project..." />
+                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} onBlur={handleBlur} disabled={isSubmitting} rows={4} className={inputClass('message')} placeholder="Tell me about your project..." />
                       </div>
 
                       {submitStatus.type === 'error' && (

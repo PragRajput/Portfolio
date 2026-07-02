@@ -90,7 +90,7 @@ app.post('/api/send-email', async (req: Request, res: Response) => {
     `;
 
     // Send email using Resend
-    const emailResponse = await resend.emails.send({
+    const { data, error: sendError } = await resend.emails.send({
       from: `Portfolio Contact Form <${FROM_EMAIL}>`,
       to: TO_EMAIL,
       replyTo: email,
@@ -98,12 +98,22 @@ app.post('/api/send-email', async (req: Request, res: Response) => {
       html: htmlContent
     });
 
-    console.log('Email sent successfully:', emailResponse);
+    // Resend returns errors in the response body rather than throwing,
+    // so we must check `error` explicitly or failures look like successes.
+    if (sendError) {
+      console.error('Resend API error:', sendError);
+      res.status(502).json({
+        error: sendError.message || 'Failed to send email. Please try again later.'
+      });
+      return;
+    }
+
+    console.log('Email sent successfully:', data);
 
     res.status(200).json({
       success: true,
       message: 'Email sent successfully',
-      data: emailResponse.data
+      data
     });
 
   } catch (error: unknown) {
