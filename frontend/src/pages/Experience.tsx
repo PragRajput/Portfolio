@@ -11,7 +11,8 @@ const experiences = [
       'Building production-grade MERN features and AI agent systems',
       'Owning end-to-end development of the SuprConfig CRM deployment product',
       'Architecting multi-agent pipelines using LangGraph and Claude API',
-      'Built HubSpot CRM Audit Agent running 25+ health checks with severity-labeled PDF reports',
+      'Built 40+ integrations between platforms like Salesforce, HubSpot, QuickBooks, Zoho Books, NetSuite, etc.',
+      'Built TrueDialog — public HubSpot app enabling one-to-one and mass SMS campaigns for 100k+ contacts',
     ],
   },
   {
@@ -21,7 +22,8 @@ const experiences = [
     current: false,
     bullets: [
       'Delivered full-stack MERN applications with third-party API integrations',
-      'Built TrueDialog — public HubSpot app enabling one-to-one and mass SMS campaigns for 100k+ contacts',
+      'Built an Educational Learning Management Platform (LMS)',
+      'Built Eu Pro Scene — a gaming tournament platform with PayPal wallet top-ups, credit-based tournament entry, and withdrawals',
       'Implemented Azure-hosted infrastructure: App Service, Functions, SignalR, Service Bus',
       'Regular production deployments with CI/CD pipelines',
     ],

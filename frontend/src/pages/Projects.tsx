@@ -35,6 +35,7 @@ const projects: Project[] = [
     description: 'Chrome extension built to bypass HubSpot API limitations, enabling support for reports and dashboards within the SuprConfig deployment ecosystem. Extends the core platform capabilities beyond what the HubSpot API officially exposes.',
     image: '/placeholder-project.jpg',
     technologies: ['Chrome Extension', 'JavaScript', 'TypeScript', 'HubSpot API', 'React'],
+    company: 'OneMetric',
   },
   {
     id: '4',
@@ -43,6 +44,7 @@ const projects: Project[] = [
     image: '/projects/supr-config.svg',
     technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Firebase Functions', 'Firebase Hosting', 'Firebase Database', 'Firebase Storage', 'Vertex AI', 'Cloud Tasks', 'Stripe', 'HubSpot API'],
     demoUrl: 'https://www.suprdense.com/config',
+    company: 'OneMetric',
   },
   {
     id: '5',
@@ -51,6 +53,7 @@ const projects: Project[] = [
     image: '/projects/truedialog.png',
     technologies: ['React', 'Node.js', 'TypeScript', 'SMS API', 'Azure Functions', 'Azure App Service', 'Cosmos DB', 'SignalR', 'Azure Key Vault', 'Service Bus'],
     demoUrl: 'https://www.truedialog.com/',
+    company: 'OneMetric',
   },
   {
     id: 'p6',
@@ -59,6 +62,7 @@ const projects: Project[] = [
     image: '/placeholder-project.jpg',
     technologies: ['Node.js', 'HubSpot API', 'Cin7 API', 'Webhooks', 'Express', 'Firebase Functions'],
     demoUrl: 'https://circleg.world/home.html',
+    company: 'OneMetric',
   },
   {
     id: '9',
@@ -83,6 +87,7 @@ const projects: Project[] = [
     description: 'Developed scalable integration supporting multiple Zoho organizations with HubSpot. Implemented 2-way data synchronization, multi-tenant architecture, and automated data mapping across different organizational structures.',
     image: '/placeholder-project.jpg',
     technologies: ['TypeScript', 'Python', 'FastAPI', 'Zoho API', 'HubSpot API', 'Webhooks', 'Heroku'],
+    company: 'OneMetric',
   },
   {
     id: 'p8',
@@ -90,6 +95,7 @@ const projects: Project[] = [
     description: 'Comprehensive 4-tier learning platform with hierarchical access: Super Admin creates interactive lessons with drag-and-drop UI; School Admin manages teachers and students; Teachers customize lessons and mark attendance; Students access assignments and submit feedback with real-time dashboard updates.',
     image: '/placeholder-project.jpg',
     technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Express', 'Role-Based Access', 'Real-time Dashboard'],
+    company: 'Deftsoft',
   },
   {
     id: 'p11',
@@ -97,6 +103,7 @@ const projects: Project[] = [
     description: 'Enterprise-scale data processing system using Python FastAPI handling 200,000–300,000 daily records. Automated cron jobs fetch files from SFTP, upload to GCP Cloud Storage, perform data cleaning including de-duplication and null handling, then migrate to HubSpot via batch processing.',
     image: '/placeholder-project.jpg',
     technologies: ['Python', 'FastAPI', 'GCP Cloud Storage', 'GCP App Engine', 'SFTP', 'HubSpot API', 'Cron Jobs', 'Batch Processing'],
+    company: 'OneMetric',
   },
   {
     id: 'p12',
@@ -104,6 +111,7 @@ const projects: Project[] = [
     description: 'Comprehensive booking integration system syncing reservation data with HubSpot across contacts, orders, products, and cancellations. Real-time booking management with automated workflow triggers.',
     image: '/placeholder-project.jpg',
     technologies: ['React', 'Node.js', 'HubSpot API', 'Booking System', 'Nordhost'],
+    company: 'OneMetric',
   },
   {
     id: 'p13',
@@ -111,10 +119,45 @@ const projects: Project[] = [
     description: 'Embedded Telegram inside HubSpot CRM for seamless team communication. Automatically generates deal-based Telegram groups to streamline collaboration across sales and business development.',
     image: '/placeholder-project.jpg',
     technologies: ['Telegram API', 'HubSpot API', 'Node.js', 'TypeScript', 'Automated Workflows'],
+    company: 'OneMetric',
+  },
+  {
+    id: 'p14',
+    title: 'Eu Pro Scene — Gaming Tournament Platform',
+    description: 'Gaming tournament platform where tournaments are organised online and played out at physical venues, with prize winnings reflected directly in player accounts. Users top up real cash via PayPal to buy platform credits, spend those credits to enter any game tournament, and can withdraw their balance back out — backed by a full wallet system handling cash-to-credit conversion, tournament entry, and payouts.',
+    image: '/placeholder-project.jpg',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'PayPal API', 'Wallet System'],
+    demoUrl: 'https://euproscene.com/',
+    company: 'Deftsoft',
   },
 ];
 
 type Tab = 'all' | 'personal' | 'work';
+
+function ProjectBadges({ project, size = 'sm' }: { project: Project; size?: 'sm' | 'md' }) {
+  const dims = size === 'md' ? 'px-2.5 py-0.5 text-[11px]' : 'px-2 py-0.5 text-[10px]';
+  const pill = `inline-flex items-center rounded-full border font-medium ${dims}`;
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      {project.personal ? (
+        <span className={`${pill} uppercase tracking-wide bg-primary/10 text-primary border-primary/20`}>
+          Personal
+        </span>
+      ) : (
+        <>
+          <span className={`${pill} uppercase tracking-wide bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20`}>
+            Work
+          </span>
+          {project.company && (
+            <span className={`${pill} tracking-wide bg-secondary text-muted-foreground border-border`}>
+              {project.company}
+            </span>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
 
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -191,6 +234,7 @@ export function Projects() {
               onClick={() => setSelectedProject(project)}
               className="bg-card border border-border rounded-lg p-5 cursor-pointer group hover:border-primary/50 transition-all flex flex-col gap-3 hover:bg-card/80"
             >
+              <ProjectBadges project={project} />
               <div className="flex items-start justify-between gap-2">
                 <h3 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors leading-snug">
                   {project.title}
@@ -248,7 +292,10 @@ export function Projects() {
               className="bg-card border border-border rounded-xl max-w-xl w-full max-h-[85vh] overflow-y-auto"
             >
               <div className="flex items-start justify-between p-6 pb-4">
-                <h2 className="text-base font-semibold pr-4 leading-snug">{selectedProject.title}</h2>
+                <div className="pr-4">
+                  <h2 className="text-base font-semibold leading-snug mb-2.5">{selectedProject.title}</h2>
+                  <ProjectBadges project={selectedProject} size="md" />
+                </div>
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="text-muted-foreground hover:text-foreground transition-colors shrink-0 p-1 hover:bg-secondary rounded-md"

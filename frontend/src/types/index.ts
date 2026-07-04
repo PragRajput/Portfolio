@@ -7,6 +7,7 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   personal?: boolean;
+  company?: string;
 }
 
 export interface Experience {
