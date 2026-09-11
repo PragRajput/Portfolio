@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
+import { CAREER_START_DATE } from '@/constants';
+import { getExperienceLabel } from '@/lib/utils';
 
 export function About() {
+  const experienceLabel = getExperienceLabel(CAREER_START_DATE);
+
   return (
     <section id="about" className="py-16 border-b border-border">
       <div className="w-full mx-auto px-8 max-w-screen-2xl">
@@ -25,7 +29,7 @@ export function About() {
 
         <div className="grid md:grid-cols-[300px_1fr] gap-10 items-start">
 
-          {/* Left — photo + stat cards */}
+          {/* Left: photo + stat cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +43,7 @@ export function About() {
             <div className="grid grid-cols-2 gap-3">
               {[
                 { label: 'Focus', value: 'Full-Stack + AI' },
-                { label: 'Experience', value: '2+ Years' },
+                { label: 'Experience', value: `${experienceLabel} Years` },
                 { label: 'Location', value: 'Gurugram, IN' },
                 { label: 'Status', value: 'Open to work' },
               ].map((item) => (
@@ -51,7 +55,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right — bio + what I do */}
+          {/* Right: bio + what I do */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,17 +64,17 @@ export function About() {
             className="space-y-6 text-muted-foreground leading-relaxed"
           >
             <p>
-              I'm a full-stack developer with 2+ years building production-grade systems —
+              I'm a full-stack developer with {experienceLabel} years building production-grade systems:
               CRM integrations, real-time sync engines, and AI agent pipelines using
               LangGraph and Claude API.
             </p>
             <p>
-              I enjoy working across the full stack — from designing APIs and async pipelines
+              I enjoy working across the full stack, from designing APIs and async pipelines
               to shipping clean, performant frontends. I take ownership end-to-end, from
               architecture decisions through deployment and monitoring.
             </p>
             <p>
-              I'm drawn to hard problems at the intersection of AI and practical engineering —
+              I'm drawn to hard problems at the intersection of AI and practical engineering:
               systems that don't just work, but scale. Multi-tenant architectures, event-driven
               sync engines, and agents that automate real workflows are where I do my best work.
             </p>
@@ -86,7 +90,7 @@ export function About() {
                   'Deploy and manage cloud infrastructure on Azure, GCP & Firebase',
                 ].map((item) => (
                   <li key={item} className="flex gap-3 text-sm">
-                    <span className="text-primary mt-0.5 shrink-0">—</span>
+                    <span className="text-primary mt-0.5 shrink-0">•</span>
                     {item}
                   </li>
                 ))}

@@ -5,25 +5,25 @@ const experiences = [
     company: 'OneMetric',
     formerly: 'formerly Growtomation',
     role: 'Full-Stack Developer',
-    period: 'Apr 2025 — Present',
+    period: 'Apr 2025 - Present',
     current: true,
     bullets: [
       'Building production-grade MERN features and AI agent systems',
       'Owning end-to-end development of the SuprConfig CRM deployment product',
       'Architecting multi-agent pipelines using LangGraph and Claude API',
       'Built 40+ integrations between platforms like Salesforce, HubSpot, QuickBooks, Zoho Books, NetSuite, etc.',
-      'Built TrueDialog — public HubSpot app enabling one-to-one and mass SMS campaigns for 100k+ contacts',
+      'Built TrueDialog, a public HubSpot app enabling one-to-one and mass SMS campaigns for 100k+ contacts',
     ],
   },
   {
     company: 'Deftsoft Informatics',
     role: 'Full-Stack Developer',
-    period: 'Jun 2024 — Apr 2025',
+    period: 'Jun 2024 - Apr 2025',
     current: false,
     bullets: [
       'Delivered full-stack MERN applications with third-party API integrations',
       'Built an Educational Learning Management Platform (LMS)',
-      'Built Eu Pro Scene — a gaming tournament platform with PayPal wallet top-ups, credit-based tournament entry, and withdrawals',
+      'Built Eu Pro Scene, a gaming tournament platform with PayPal wallet top-ups, credit-based tournament entry, and withdrawals',
       'Implemented Azure-hosted infrastructure: App Service, Functions, SignalR, Service Bus',
       'Regular production deployments with CI/CD pipelines',
     ],
@@ -90,7 +90,7 @@ export function Experience() {
                 <ul className="space-y-1.5">
                   {exp.bullets.map((bullet) => (
                     <li key={bullet} className="flex gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary mt-1 shrink-0">—</span>
+                      <span className="text-primary mt-1 shrink-0">•</span>
                       {bullet}
                     </li>
                   ))}

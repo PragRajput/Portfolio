@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const featured = {
   title: 'AI & Agents',
-  skills: ['Claude API', 'LangGraph', 'LangChain', 'OpenRouter', 'Prompt Engineering', 'Multi-Agent Pipelines', 'RAG'],
+  skills: ['Claude API', 'LangGraph', 'LangChain', 'OpenRouter', 'ElevenLabs', 'Prompt Engineering', 'Multi-Agent Pipelines', 'RAG'],
 };
 
 const skillCategories = [
@@ -12,15 +12,15 @@ const skillCategories = [
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'WebSockets', 'Zustand', 'shadcn/ui'],
+    skills: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'WebSockets', 'WebRTC', 'Zustand', 'shadcn/ui'],
   },
   {
     title: 'Databases & Queues',
-    skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Supabase', 'Mongoose', 'BullMQ', 'Cosmos DB'],
+    skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Supabase', 'Mongoose', 'SQLAlchemy', 'BullMQ', 'Cosmos DB'],
   },
   {
     title: 'Integration & APIs',
-    skills: ['2-way CRM Syncing', 'REST APIs', 'Webhooks', 'HubSpot API', 'Zoho API', 'Salesforce API'],
+    skills: ['2-way CRM Syncing', 'REST APIs', 'Webhooks', 'HubSpot API', 'Zoho API', 'Salesforce API', 'NetSuite API', 'QuickBooks API', 'Xero API', 'Monday.com API'],
   },
   {
     title: 'Cloud & Infrastructure',
@@ -55,7 +55,7 @@ export function Skills() {
           Technologies I work with
         </motion.h2>
 
-        {/* AI & Agents — featured */}
+        {/* AI & Agents: featured */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export function Skills() {
           </div>
         </motion.div>
 
-        {/* Rest — 2 col grid */}
+        {/* Rest: 2 col grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {skillCategories.map((category, index) => (
             <motion.div

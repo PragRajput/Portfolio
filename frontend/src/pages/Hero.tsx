@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
+import { CAREER_START_DATE } from '@/constants';
+import { getExperienceLabel } from '@/lib/utils';
 
 export function Hero() {
+  const experienceLabel = getExperienceLabel(CAREER_START_DATE);
+
   return (
     <section id="home" className="min-h-screen flex items-center border-b border-border">
       <div className="w-full mx-auto px-8 max-w-screen-2xl grid md:grid-cols-2 gap-12 items-center">
@@ -83,7 +87,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — code card */}
+        {/* Right: code card */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -110,12 +114,12 @@ export function Hero() {
               <p className="pl-4"><span className="text-primary">company</span><span className="text-muted-foreground">:</span> <span className="text-amber-600 dark:text-amber-300">"OneMetric"</span><span className="text-muted-foreground">,</span></p>
               <p className="pl-4"><span className="text-primary">stack</span><span className="text-muted-foreground">: [</span></p>
               <p className="pl-8"><span className="text-amber-600 dark:text-amber-300">"React"</span><span className="text-muted-foreground">,</span> <span className="text-amber-600 dark:text-amber-300">"Node.js"</span><span className="text-muted-foreground">,</span> <span className="text-amber-600 dark:text-amber-300">"TypeScript"</span><span className="text-muted-foreground">,</span></p>
-              <p className="pl-8"><span className="text-amber-600 dark:text-amber-300">"LangGraph"</span><span className="text-muted-foreground">,</span> <span className="text-amber-600 dark:text-amber-300">"Claude API"</span><span className="text-muted-foreground">,</span></p>
-              <p className="pl-8"><span className="text-amber-600 dark:text-amber-300">"MongoDB"</span><span className="text-muted-foreground">,</span> <span className="text-amber-600 dark:text-amber-300">"Redis"</span><span className="text-muted-foreground">,</span></p>
+              <p className="pl-8"><span className="text-amber-600 dark:text-amber-300">"Python"</span><span className="text-muted-foreground">,</span> <span className="text-amber-600 dark:text-amber-300">"LangGraph"</span><span className="text-muted-foreground">,</span> <span className="text-amber-600 dark:text-amber-300">"Claude API"</span><span className="text-muted-foreground">,</span></p>
+              <p className="pl-8"><span className="text-amber-600 dark:text-amber-300">"ElevenLabs"</span><span className="text-muted-foreground">,</span> <span className="text-amber-600 dark:text-amber-300">"MongoDB"</span><span className="text-muted-foreground">,</span> <span className="text-amber-600 dark:text-amber-300">"Redis"</span><span className="text-muted-foreground">,</span></p>
               <p className="pl-4"><span className="text-muted-foreground">],</span></p>
               <p className="pl-4"><span className="text-primary">openToWork</span><span className="text-muted-foreground">:</span> <span className="text-blue-500 dark:text-blue-400">true</span><span className="text-muted-foreground">,</span></p>
               <p><span className="text-muted-foreground">{'}'}</span></p>
-              <p className="pt-2 text-muted-foreground/50">// 2+ yrs · 15+ projects · 3+ AI agents</p>
+              <p className="pt-2 text-muted-foreground/50">{`// ${experienceLabel} yrs · 30+ projects · 10+ AI agents`}</p>
             </div>
           </div>
         </motion.div>

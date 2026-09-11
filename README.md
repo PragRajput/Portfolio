@@ -1,4 +1,4 @@
-# Portfolio — Monorepo
+# Portfolio Monorepo
 
 Personal portfolio with a React frontend on Firebase Hosting and an Express API on Vercel.
 
@@ -65,5 +65,5 @@ Both pipelines trigger only when their respective directory changes.
 
 ## Tech Stack
 
-**Frontend** — React 19, Vite, TypeScript, Tailwind CSS, Framer Motion, shadcn/ui → Firebase Hosting  
-**Backend** — Express 4, TypeScript, Resend (email) → Vercel Serverless
+**Frontend:** React 19, Vite, TypeScript, Tailwind CSS, Framer Motion, shadcn/ui → Firebase Hosting  
+**Backend:** Express 4, TypeScript, Resend (email) → Vercel Serverless

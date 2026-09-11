@@ -51,7 +51,7 @@ export function Contact() {
       });
       const data = await response.json();
       if (response.ok) {
-        setSubmitStatus({ type: 'success', message: "Thanks for reaching out — I'll get back to you within 24 hours." });
+        setSubmitStatus({ type: 'success', message: "Thanks for reaching out. I'll get back to you within 24 hours." });
         setFormData({ name: '', email: '', message: '' });
         setErrors({});
         setTouched({ name: false, email: false, message: false });
@@ -152,7 +152,7 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* Right — CTA */}
+          {/* Right: CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -163,7 +163,7 @@ export function Contact() {
             <div>
               <p className="text-xs font-medium text-primary uppercase tracking-widest mb-3">Send a message</p>
               <p className="text-2xl font-bold tracking-tight mb-3">Got a project in mind?</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">Fill out the form and I'll get back to you within 24 hours — no fluff, just a straight conversation about what you need built.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Fill out the form and I'll get back to you within 24 hours: no fluff, just a straight conversation about what you need built.</p>
             </div>
             <div className="w-full border-t border-border pt-5 space-y-3">
               {[

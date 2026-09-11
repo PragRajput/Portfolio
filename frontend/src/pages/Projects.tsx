@@ -5,7 +5,7 @@ import type { Project } from '@/types';
 const projects: Project[] = [
   {
     id: '11',
-    title: 'LexigoAI — Vocabulary Learning App',
+    title: 'LexigoAI: Vocabulary Learning App',
     description: 'AI-powered vocabulary and language learning app. Surfaces 3 fresh AI-generated words daily, lets you search or generate any word with definitions, synonyms, antonyms, and translations. Quiz yourself across 4 modes (flashcard, multiple choice, fill-in-blank, match) plus a Random AI Quiz. Per-account word and sentence collections with full attempt history.',
     image: '/placeholder-project.jpg',
     technologies: ['Next.js 16', 'React 19', 'Supabase', 'OpenRouter', 'Zustand', 'Tailwind CSS v4', 'shadcn/ui', 'Netlify'],
@@ -14,8 +14,8 @@ const projects: Project[] = [
   },
   {
     id: '1',
-    title: 'Synker — Integration Automation Platform',
-    description: 'Webhook-driven workflow engine for real-time CRM/ERP sync across HubSpot, QuickBooks, Close CRM, Zoho, and Cin7. Workflows are defined as typed step graphs (get_record, lookup, branch, iterate, update_record) scoped per connection — preventing O(n) webhook fan-out. Ships a conversational AI builder (Claude) backed by a provider knowledge base encoding connector field paths, upsert patterns, and failure modes. Includes end-to-end bidirectional HubSpot ↔ QuickBooks sync with QB invoice write-back and loop-guard branch patterns. Custom HubSpot property detection surfaces missing fields before they silently fail at runtime. BullMQ + Redis for async processing with retry; OAuth 2.0 token refresh handled transparently per connector.',
+    title: 'Synker: Integration Automation Platform',
+    description: 'Webhook-driven workflow engine for real-time CRM/ERP sync across HubSpot, QuickBooks, Close CRM, Zoho, and Cin7. Workflows are defined as typed step graphs (get_record, lookup, branch, iterate, update_record) scoped per connection, preventing O(n) webhook fan-out. Ships a conversational AI builder (Claude) backed by a provider knowledge base encoding connector field paths, upsert patterns, and failure modes. Includes end-to-end bidirectional HubSpot ↔ QuickBooks sync with QB invoice write-back and loop-guard branch patterns. Custom HubSpot property detection surfaces missing fields before they silently fail at runtime. BullMQ + Redis for async processing with retry; OAuth 2.0 token refresh handled transparently per connector.',
     image: '/placeholder-project.jpg',
     technologies: ['Node.js', 'TypeScript', 'Python', 'FastAPI', 'LangGraph', 'Claude API', 'Tool Calling', 'Next.js', 'BullMQ', 'Redis', 'MongoDB', 'Express', 'OAuth 2.0', 'Webhooks'],
     demoUrl: 'https://synker-landing-gq88.vercel.app/',
@@ -23,11 +23,27 @@ const projects: Project[] = [
   },
   {
     id: '2',
-    title: 'HubMetrics — CRM Audit Agent',
+    title: 'HubMetrics: CRM Audit Agent',
     description: 'AI-powered multi-agent audit platform (orchestrator → narrator pipeline) running 25+ health checks across HubSpot Sales, Marketing, and Service Hub. Uses Claude AI to generate prioritized, severity-labeled reports with PDF export.',
     image: '/placeholder-project.jpg',
     technologies: ['Claude API', 'LangGraph', 'Tool Calling', 'Node.js', 'TypeScript', 'Express', 'MongoDB'],
     personal: true,
+  },
+  {
+    id: 'p15',
+    title: 'Discovery Agent',
+    description: 'Voice AI agent that conducts pre-discovery stakeholder interviews ahead of an agency\'s real discovery call. Admins create client accounts and invite stakeholders via personal links; each has a 5-10 minute live voice conversation (ElevenLabs Conversational AI, browser-to-ElevenLabs WebRTC) driven by a 24-persona matrix (8 functions × 3 company sizes) that tailors the questions asked. Claude summarizes each transcript into a per-stakeholder write-up and synthesizes an account-level report, grounded throughout in admin-supplied context notes and uploaded documents.',
+    image: '/placeholder-project.jpg',
+    technologies: ['FastAPI', 'SQLAlchemy', 'PostgreSQL', 'React', 'Vite', 'Tailwind CSS', 'ElevenLabs Conversational AI', 'Claude API', 'WebRTC'],
+    company: 'OneMetric',
+  },
+  {
+    id: 'p16',
+    title: 'EY Customer Training Platform',
+    description: 'AI-driven soft-skills training platform built for EY, where consultants practice high-pressure client conversations against a live AI-played persona (ElevenLabs voice call) before facing quiz-based reinforcement. Claude grades each call transcript against a 5-dimension rubric (active listening, empathy, structured communication, managing pressure, ownership), returning dimension scores, a graded headline, and coaching notes tied to specific named skill gaps. Combined call + quiz scorecards feed a learner dashboard with score trends and cohort ranking.',
+    image: '/placeholder-project.jpg',
+    technologies: ['FastAPI', 'SQLModel', 'React', 'Vite', 'Tailwind CSS', 'ElevenLabs Conversational AI', 'Claude API'],
+    company: 'OneMetric',
   },
   {
     id: '3',
@@ -39,7 +55,7 @@ const projects: Project[] = [
   },
   {
     id: '4',
-    title: 'SuprConfig — HubSpot Deployment Platform',
+    title: 'SuprConfig: HubSpot Deployment Platform',
     description: 'Enterprise SaaS product by SuprDense enabling one-click HubSpot deployments and asset management. Built comprehensive platform for importing and deploying HubSpot assets (workflows, templates, lists, forms) across multiple portals. Features include pre-built module library, sandbox-to-production transfers, and automated deployment system delivering 5x faster HubSpot implementations.',
     image: '/projects/supr-config.svg',
     technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Firebase Functions', 'Firebase Hosting', 'Firebase Database', 'Firebase Storage', 'Vertex AI', 'Cloud Tasks', 'Stripe', 'HubSpot API'],
@@ -66,7 +82,7 @@ const projects: Project[] = [
   },
   {
     id: '9',
-    title: 'DailyLog — Work Tracking App',
+    title: 'DailyLog: Work Tracking App',
     description: 'Personal work tracking app for developers to log daily tasks, track time per project, and browse history via a calendar view. Features AI-powered standup summaries via Gemini API, Google OAuth sign-in, and profile customization with Cloudinary avatar uploads.',
     image: '/placeholder-project.jpg',
     technologies: ['Next.js 14', 'TypeScript', 'Express', 'MongoDB', 'Google OAuth', 'Gemini API', 'Cloudinary', 'Tailwind CSS', 'Framer Motion'],
@@ -75,8 +91,8 @@ const projects: Project[] = [
   },
   {
     id: '10',
-    title: 'DailyPing — VS Code Dev Tracker',
-    description: 'VS Code extension that silently tracks coding activity in the background and generates AI-powered standup summaries with zero interruption. Local dashboard shows hourly productivity charts and per-project language breakdown. Fully private — no cloud sync, no telemetry, all data stays on your machine.',
+    title: 'DailyPing: VS Code Dev Tracker',
+    description: 'VS Code extension that silently tracks coding activity in the background and generates AI-powered standup summaries with zero interruption. Local dashboard shows hourly productivity charts and per-project language breakdown. Fully private: no cloud sync, no telemetry, all data stays on your machine.',
     image: '/placeholder-project.jpg',
     technologies: ['VS Code API', 'TypeScript', 'Express', 'React', 'Vite', 'Redux Toolkit', 'Recharts', 'Gemini API', 'esbuild'],
     personal: true,
@@ -100,9 +116,25 @@ const projects: Project[] = [
   {
     id: 'p11',
     title: 'SFTP × HubSpot Data Migration',
-    description: 'Enterprise-scale data processing system using Python FastAPI handling 200,000–300,000 daily records. Automated cron jobs fetch files from SFTP, upload to GCP Cloud Storage, perform data cleaning including de-duplication and null handling, then migrate to HubSpot via batch processing.',
+    description: 'Enterprise-scale data processing system using Python FastAPI handling 200,000 to 300,000 daily records. Automated cron jobs fetch files from SFTP, upload to GCP Cloud Storage, perform data cleaning including de-duplication and null handling, then migrate to HubSpot via batch processing.',
     image: '/placeholder-project.jpg',
     technologies: ['Python', 'FastAPI', 'GCP Cloud Storage', 'GCP App Engine', 'SFTP', 'HubSpot API', 'Cron Jobs', 'Batch Processing'],
+    company: 'OneMetric',
+  },
+  {
+    id: 'p17',
+    title: 'HubSpot ↔ Salesforce Sync',
+    description: 'Bidirectional CRM sync between HubSpot and Salesforce for leads, deals, and their related records. Salesforce exposes no outbound webhooks, so the HubSpot-to-Salesforce direction runs on a cursor-based poller with a per-object watermark, while Salesforce-to-HubSpot changes are captured instantly via triggers and pushed through a staged outbox batch. Leads created or qualified in Salesforce are pushed to HubSpot, and deals created on either platform are mirrored to the other, matched and deduplicated using dedicated internal-ID properties stored on both records so re-running a sync can never create a duplicate. Custom field mappings and HubSpot associations keep Deal, Company, Contact, and Line Item relationships in sync alongside the field data, with a nightly reconciliation job self-healing any drift.',
+    image: '/placeholder-project.jpg',
+    technologies: ['Salesforce Apex', 'Batch Apex', 'HubSpot API', 'Node.js', 'Python', 'REST APIs', 'Webhooks', 'Custom Metadata Types'],
+    company: 'OneMetric',
+  },
+  {
+    id: 'p18',
+    title: 'HubSpot ↔ NetSuite Integration',
+    description: 'Node/Express service syncing HubSpot and NetSuite across four flows: bidirectional contact sync (HubSpot webhook + NetSuite poller), activity logging (notes, calls, emails, tasks, meetings, WhatsApp) pushed from HubSpot into NetSuite, reservation-to-deal creation, and invoice-driven deal-stage updates. A 60-second poller watches NetSuite via SuiteQL for new reservations and customer receipts, claiming an existing HubSpot deal by matching contact and property rather than guessing, then stamping it so later polls cannot double-claim it. Deployed on Firebase as paired HTTPS and scheduled functions, with Firestore-backed poller state so records created during downtime are still picked up after a redeploy.',
+    image: '/placeholder-project.jpg',
+    technologies: ['Node.js', 'Express', 'NetSuite REST API', 'OAuth 1.0 (TBA)', 'HubSpot API', 'SuiteScript', 'Firebase Functions', 'Firestore', 'Webhooks'],
     company: 'OneMetric',
   },
   {
@@ -123,8 +155,8 @@ const projects: Project[] = [
   },
   {
     id: 'p14',
-    title: 'Eu Pro Scene — Gaming Tournament Platform',
-    description: 'Gaming tournament platform where tournaments are organised online and played out at physical venues, with prize winnings reflected directly in player accounts. Users top up real cash via PayPal to buy platform credits, spend those credits to enter any game tournament, and can withdraw their balance back out — backed by a full wallet system handling cash-to-credit conversion, tournament entry, and payouts.',
+    title: 'Eu Pro Scene: Gaming Tournament Platform',
+    description: 'Gaming tournament platform where tournaments are organised online and played out at physical venues, with prize winnings reflected directly in player accounts. Users top up real cash via PayPal to buy platform credits, spend those credits to enter any game tournament, and can withdraw their balance back out, backed by a full wallet system handling cash-to-credit conversion, tournament entry, and payouts.',
     image: '/placeholder-project.jpg',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'PayPal API', 'Wallet System'],
     demoUrl: 'https://euproscene.com/',

@@ -12,3 +12,5 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/prag-dev-singh-aa65b617b',
   email: 'paragdev168@gmail.com',
 };
+
+export const CAREER_START_DATE = new Date('2024-06-01');
