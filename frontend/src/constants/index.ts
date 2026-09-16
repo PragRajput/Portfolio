@@ -9,7 +9,7 @@ export const NAVIGATION_ITEMS = [
 
 export const SOCIAL_LINKS = {
   github: 'https://github.com/PragRajput',
-  linkedin: 'https://www.linkedin.com/in/prag-dev-singh-aa65b617b',
+  linkedin: 'https://www.linkedin.com/in/prag-dev-singh',
   email: 'paragdev168@gmail.com',
 };
 
