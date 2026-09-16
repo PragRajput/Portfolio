@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     id: '1',
     title: 'Synker: Integration Automation Platform',
-    description: 'Webhook-driven workflow engine for real-time CRM/ERP sync across HubSpot, QuickBooks, Close CRM, Zoho, and Cin7. Workflows are defined as typed step graphs (get_record, lookup, branch, iterate, update_record) scoped per connection, preventing O(n) webhook fan-out. Ships a conversational AI builder (Claude) backed by a provider knowledge base encoding connector field paths, upsert patterns, and failure modes. Includes end-to-end bidirectional HubSpot ↔ QuickBooks sync with QB invoice write-back and loop-guard branch patterns. Custom HubSpot property detection surfaces missing fields before they silently fail at runtime. BullMQ + Redis for async processing with retry; OAuth 2.0 token refresh handled transparently per connector.',
+    description: 'Webhook-driven workflow engine for real-time CRM/ERP sync across 13 connectors, including HubSpot, Salesforce, NetSuite, QuickBooks, Xero, Zoho, Close CRM, and Cin7. Workflows are defined as typed step graphs (get_record, lookup, branch, iterate, update_record) scoped per connection, preventing O(n) webhook fan-out. Ships a conversational AI builder (Claude) backed by a provider knowledge base encoding connector field paths, upsert patterns, and failure modes. Includes end-to-end bidirectional HubSpot ↔ QuickBooks sync with QB invoice write-back and loop-guard branch patterns. Custom HubSpot property detection surfaces missing fields before they silently fail at runtime. BullMQ + Redis for async processing with retry; OAuth 2.0 token refresh handled transparently per connector.',
     image: '/placeholder-project.jpg',
     technologies: ['Node.js', 'TypeScript', 'Python', 'FastAPI', 'LangGraph', 'Claude API', 'Tool Calling', 'Next.js', 'BullMQ', 'Redis', 'MongoDB', 'Express', 'OAuth 2.0', 'Webhooks'],
     demoUrl: 'https://synker-landing-gq88.vercel.app/',
@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
     id: 'p15',
     title: 'Discovery Agent',
-    description: 'Voice AI agent that conducts pre-discovery stakeholder interviews ahead of an agency\'s real discovery call. Admins create client accounts and invite stakeholders via personal links; each has a 5-10 minute live voice conversation (ElevenLabs Conversational AI, browser-to-ElevenLabs WebRTC) driven by a 24-persona matrix (8 functions × 3 company sizes) that tailors the questions asked. Claude summarizes each transcript into a per-stakeholder write-up and synthesizes an account-level report, grounded throughout in admin-supplied context notes and uploaded documents.',
+    description: 'Voice AI agent that conducts pre-discovery stakeholder interviews ahead of an agency\'s real discovery call. Admins create client accounts and invite stakeholders via personal links; each has a 5-10 minute live voice conversation (ElevenLabs Conversational AI, browser-to-ElevenLabs WebRTC) driven by a 24-persona matrix (8 functions × 3 company sizes) that tailors the questions asked. Claude summarizes each transcript into a per-stakeholder write-up and synthesizes an account-level report, grounded throughout in admin-supplied context notes and uploaded documents. Shipped across 50+ client accounts, generating 100+ account-level reports and cutting discovery turnaround from 2-3 days down to a few hours.',
     image: '/placeholder-project.jpg',
     technologies: ['FastAPI', 'SQLAlchemy', 'PostgreSQL', 'React', 'Vite', 'Tailwind CSS', 'ElevenLabs Conversational AI', 'Claude API', 'WebRTC'],
     company: 'OneMetric',
@@ -56,7 +56,7 @@ const projects: Project[] = [
   {
     id: '4',
     title: 'SuprConfig: HubSpot Deployment Platform',
-    description: 'Enterprise SaaS product by SuprDense enabling one-click HubSpot deployments and asset management. Built comprehensive platform for importing and deploying HubSpot assets (workflows, templates, lists, forms) across multiple portals. Features include pre-built module library, sandbox-to-production transfers, and automated deployment system delivering 5x faster HubSpot implementations.',
+    description: 'Enterprise SaaS product by SuprDense enabling one-click HubSpot deployments and asset management. Built comprehensive platform for importing and deploying HubSpot assets (workflows, templates, lists, forms) across multiple portals. Features include pre-built module library, sandbox-to-production transfers, and automated deployment system delivering 5x faster HubSpot implementations. Used across 100+ portals with 500+ deployments and 1,000+ assets managed; adds rollback, deployment history, property verification, AI-powered bulk property creation, and asynchronous deployments.',
     image: '/projects/supr-config.svg',
     technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Firebase Functions', 'Firebase Hosting', 'Firebase Database', 'Firebase Storage', 'Vertex AI', 'Cloud Tasks', 'Stripe', 'HubSpot API'],
     demoUrl: 'https://www.suprdense.com/config',
@@ -65,7 +65,7 @@ const projects: Project[] = [
   {
     id: '5',
     title: 'TrueDialog SMS Platform',
-    description: 'Enterprise SMS messaging platform for US-based client supporting one-to-one messaging, mass SMS campaigns (up to 100k contacts), workflow automation, and template-based messaging with batch processing capabilities for 10k+ contacts.',
+    description: 'Enterprise SMS messaging platform for a US-based client, serving 40+ users and processing 10M+ messages. Supports one-to-one and mass SMS campaigns, media messaging, templated workflow automation, and opt-in/opt-out compliance management, with batch processing for large-scale sends.',
     image: '/projects/truedialog.png',
     technologies: ['React', 'Node.js', 'TypeScript', 'SMS API', 'Azure Functions', 'Azure App Service', 'Cosmos DB', 'SignalR', 'Azure Key Vault', 'Service Bus'],
     demoUrl: 'https://www.truedialog.com/',
@@ -116,9 +116,9 @@ const projects: Project[] = [
   {
     id: 'p11',
     title: 'SFTP × HubSpot Data Migration',
-    description: 'Enterprise-scale data processing system using Python FastAPI handling 200,000 to 300,000 daily records. Automated cron jobs fetch files from SFTP, upload to GCP Cloud Storage, perform data cleaning including de-duplication and null handling, then migrate to HubSpot via batch processing.',
+    description: 'Enterprise-scale data processing system using Python FastAPI handling 200,000 to 300,000 daily records and 1M+ operations daily. Automated GCP Cloud Run cron jobs fetch files from SFTP, upload to GCP Cloud Storage, perform data validation, cleansing, and de-duplication, then migrate to HubSpot via batch processing with complex association handling.',
     image: '/placeholder-project.jpg',
-    technologies: ['Python', 'FastAPI', 'GCP Cloud Storage', 'GCP App Engine', 'SFTP', 'HubSpot API', 'Cron Jobs', 'Batch Processing'],
+    technologies: ['Python', 'FastAPI', 'GCP Cloud Storage', 'GCP Cloud Run', 'SFTP', 'HubSpot API', 'Cron Jobs', 'Batch Processing'],
     company: 'OneMetric',
   },
   {
@@ -240,9 +240,10 @@ export function Projects() {
             className="flex items-center gap-1 p-1 bg-secondary rounded-lg border border-border self-start sm:self-auto"
           >
             {tabs.map((tab) => (
-              <button
+              <motion.button
                 key={tab.key}
                 onClick={() => { setActiveTab(tab.key); setShowAll(false); }}
+                whileTap={{ scale: 0.95 }}
                 className={`px-4 py-1.5 rounded-md text-xs font-medium transition-all duration-200 ${
                   activeTab === tab.key
                     ? 'bg-card text-foreground shadow-sm border border-border'
@@ -250,7 +251,7 @@ export function Projects() {
                 }`}
               >
                 {tab.label}
-              </button>
+              </motion.button>
             ))}
           </motion.div>
         </div>
@@ -264,6 +265,8 @@ export function Projects() {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
               onClick={() => setSelectedProject(project)}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.98 }}
               className="bg-card border border-border rounded-lg p-5 cursor-pointer group hover:border-primary/50 transition-all flex flex-col gap-3 hover:bg-card/80"
             >
               <ProjectBadges project={project} />
@@ -296,12 +299,14 @@ export function Projects() {
 
         {filteredProjects.length > 6 && (
           <div className="flex justify-center mt-8 mb-4">
-            <button
+            <motion.button
               onClick={() => setShowAll(!showAll)}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.97 }}
               className="px-6 py-2.5 border border-border rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
             >
               {showAll ? 'Show less' : `Show ${filteredProjects.length - 6} more projects`}
-            </button>
+            </motion.button>
           </div>
         )}
       </div>
@@ -328,14 +333,16 @@ export function Projects() {
                   <h2 className="text-base font-semibold leading-snug mb-2.5">{selectedProject.title}</h2>
                   <ProjectBadges project={selectedProject} size="md" />
                 </div>
-                <button
+                <motion.button
                   onClick={() => setSelectedProject(null)}
+                  whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
+                  whileTap={{ scale: 0.9 }}
                   className="text-muted-foreground hover:text-foreground transition-colors shrink-0 p-1 hover:bg-secondary rounded-md"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                </button>
+                </motion.button>
               </div>
 
               <div className={`px-6 space-y-5 ${selectedProject.demoUrl ? 'pb-4' : 'pb-6'}`}>
@@ -360,17 +367,19 @@ export function Projects() {
 
               {selectedProject.demoUrl && (
                 <div className="flex items-center justify-end px-6 py-3 border-t border-border">
-                  <a
+                  <motion.a
                     href={selectedProject.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                    whileTap={{ scale: 0.97 }}
                     className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border hover:border-primary/60 bg-secondary/50 hover:bg-primary/5 text-xs font-medium text-foreground hover:text-primary transition-all duration-200"
                   >
                     Visit project
                     <svg className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
                     </svg>
-                  </a>
+                  </motion.a>
                 </div>
               )}
             </motion.div>

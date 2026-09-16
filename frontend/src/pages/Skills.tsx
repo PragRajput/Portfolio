@@ -12,7 +12,7 @@ const skillCategories = [
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'WebSockets', 'WebRTC', 'Zustand', 'shadcn/ui'],
+    skills: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'Vite', 'Tailwind CSS', 'WebSockets', 'WebRTC', 'Zustand', 'shadcn/ui'],
   },
   {
     title: 'Databases & Queues',
@@ -20,15 +20,15 @@ const skillCategories = [
   },
   {
     title: 'Integration & APIs',
-    skills: ['2-way CRM Syncing', 'REST APIs', 'Webhooks', 'HubSpot API', 'Zoho API', 'Salesforce API', 'NetSuite API', 'QuickBooks API', 'Xero API', 'Monday.com API'],
+    skills: ['2-way CRM Syncing', 'REST APIs', 'Webhooks', 'HubSpot API', 'Zoho API', 'Salesforce API', 'NetSuite API', 'QuickBooks API', 'Xero API', 'Monday.com API', 'Microsoft Dynamics 365 API', 'Stripe API', 'PayPal API', 'Zapier', 'n8n'],
   },
   {
     title: 'Cloud & Infrastructure',
-    skills: ['Azure App Service', 'Azure Functions', 'GCP Cloud Run', 'GCP Pub/Sub', 'Firebase Functions', 'Vertex AI'],
+    skills: ['Azure App Service', 'Azure Functions', 'GCP Cloud Run', 'GCP Pub/Sub', 'Firebase Functions', 'Vertex AI', 'Render', 'Neon'],
   },
   {
     title: 'DevOps & Tooling',
-    skills: ['Git', 'GitHub', 'Docker', 'CI/CD', 'Vercel', 'Netlify', 'Heroku'],
+    skills: ['Git', 'GitHub', 'Docker', 'CI/CD', 'Vercel', 'Netlify', 'Heroku', 'Postman'],
   },
 ];
 
@@ -61,12 +61,13 @@ export function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
           viewport={{ once: true }}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
           className="mb-4 rounded-lg border border-primary/30 bg-primary/5 p-6"
         >
           <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">{featured.title}</p>
           <div className="flex flex-wrap gap-2">
             {featured.skills.map((skill) => (
-              <span key={skill} className="px-3 py-1.5 rounded-md border border-primary/30 bg-primary/10 text-primary text-sm font-medium">
+              <span key={skill} className="px-3 py-1.5 rounded-md border border-primary/30 bg-primary/10 text-primary text-sm font-medium transition-transform hover:scale-105">
                 {skill}
               </span>
             ))}
@@ -82,12 +83,13 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="rounded-lg border border-border bg-card p-5"
             >
               <p className="text-xs font-semibold text-foreground uppercase tracking-widest mb-4">{category.title}</p>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <span key={skill} className="px-2.5 py-1 rounded-md bg-secondary border border-border text-muted-foreground text-xs font-medium hover:text-foreground hover:border-primary/30 transition-colors">
+                  <span key={skill} className="px-2.5 py-1 rounded-md bg-secondary border border-border text-muted-foreground text-xs font-medium hover:text-foreground hover:border-primary/30 transition-all hover:scale-105">
                     {skill}
                   </span>
                 ))}

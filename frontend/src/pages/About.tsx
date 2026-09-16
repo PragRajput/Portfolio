@@ -47,7 +47,7 @@ export function About() {
                 { label: 'Location', value: 'Gurugram, IN' },
                 { label: 'Status', value: 'Open to work' },
               ].map((item) => (
-                <div key={item.label} className="border border-border rounded-md p-3">
+                <div key={item.label} className="border border-border rounded-md p-3 transition-transform hover:-translate-y-0.5 hover:border-primary/30">
                   <p className="text-xs text-muted-foreground mb-1">{item.label}</p>
                   <p className="font-medium text-foreground text-sm">{item.value}</p>
                 </div>
@@ -65,8 +65,9 @@ export function About() {
           >
             <p>
               I'm a full-stack developer with {experienceLabel} years building production-grade systems:
-              CRM integrations, real-time sync engines, and AI agent pipelines using
-              LangGraph and Claude API.
+              AI agents, voice AI applications, SaaS platforms, and enterprise data pipelines.
+              I work primarily in Python, TypeScript, and React, with deep hands-on experience
+              in Claude, LangGraph, and ElevenLabs.
             </p>
             <p>
               I enjoy working across the full stack, from designing APIs and async pipelines
@@ -75,8 +76,9 @@ export function About() {
             </p>
             <p>
               I'm drawn to hard problems at the intersection of AI and practical engineering:
-              systems that don't just work, but scale. Multi-tenant architectures, event-driven
-              sync engines, and agents that automate real workflows are where I do my best work.
+              systems that don't just work, but scale. CRM integrations across a dozen+ platforms,
+              high-volume data pipelines, and agents that automate real workflows are where I do
+              my best work.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -85,7 +87,8 @@ export function About() {
                 {[
                   'Build full-stack MERN applications with real-time capabilities',
                   'Design and ship multi-agent AI pipelines using LangGraph & Claude',
-                  'Create bidirectional CRM integrations (HubSpot, Zoho, Salesforce)',
+                  'Build voice AI agents and conversational systems with ElevenLabs',
+                  'Create bidirectional CRM integrations (HubSpot, Salesforce, NetSuite, Zoho & more)',
                   'Architect async systems with BullMQ, Redis, and event-driven patterns',
                   'Deploy and manage cloud infrastructure on Azure, GCP & Firebase',
                 ].map((item) => (

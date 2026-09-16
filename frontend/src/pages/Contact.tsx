@@ -133,13 +133,20 @@ export function Contact() {
 
             <div className="space-y-3">
               {contacts.map((item) => (
-                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                  className="flex items-center gap-4 group"
+                >
                   <div className="w-10 h-10 rounded-lg border border-border bg-secondary flex items-center justify-center text-muted-foreground group-hover:border-primary/40 group-hover:text-primary transition-all shrink-0">{item.icon}</div>
                   <div>
                     <p className="text-xs text-muted-foreground">{item.label}</p>
                     <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{item.value}</p>
                   </div>
-                </a>
+                </motion.a>
               ))}
             </div>
 
@@ -177,12 +184,14 @@ export function Contact() {
                 </div>
               ))}
             </div>
-            <button
+            <motion.button
               onClick={() => setIsModalOpen(true)}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.97 }}
               className="px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors"
             >
               Send a Message
-            </button>
+            </motion.button>
           </motion.div>
 
         </div>
@@ -206,15 +215,17 @@ export function Contact() {
               onClick={(e) => e.stopPropagation()}
               className="relative bg-card border border-border rounded-xl w-full max-w-lg overflow-hidden"
             >
-              <button
+              <motion.button
                 onClick={closeModal}
                 aria-label="Close"
+                whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
+                whileTap={{ scale: 0.9 }}
                 className="absolute top-4 right-4 z-10 text-muted-foreground hover:text-foreground transition-colors p-1 hover:bg-secondary rounded-md"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
-              </button>
+              </motion.button>
 
               <AnimatePresence mode="wait">
                 {submitStatus.type === 'success' ? (
@@ -253,12 +264,14 @@ export function Contact() {
                     <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-7">
                       {submitStatus.message}
                     </p>
-                    <button
+                    <motion.button
                       onClick={closeModal}
+                      whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                      whileTap={{ scale: 0.97 }}
                       className="px-8 py-2.5 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors"
                     >
                       Done
-                    </button>
+                    </motion.button>
                   </motion.div>
                 ) : (
                   <motion.div
@@ -310,7 +323,13 @@ export function Contact() {
                         </motion.div>
                       )}
 
-                      <button type="submit" disabled={isSubmitting} className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      >
                         {isSubmitting && (
                           <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
@@ -318,7 +337,7 @@ export function Contact() {
                           </svg>
                         )}
                         {isSubmitting ? 'Sending...' : 'Send Message'}
-                      </button>
+                      </motion.button>
                     </form>
                   </motion.div>
                 )}

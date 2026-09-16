@@ -64,6 +64,7 @@ export function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ x: 4, transition: { duration: 0.2 } }}
                 className="md:pl-10 relative"
               >
                 <div className="hidden md:block absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-primary bg-background" />
