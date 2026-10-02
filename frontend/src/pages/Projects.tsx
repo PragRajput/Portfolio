@@ -98,6 +98,15 @@ const projects: Project[] = [
     personal: true,
   },
   {
+    id: 'p19',
+    title: 'Rudra Shodh Foundation: Research Publication Platform',
+    description: 'Mobile-first static website for an academic research foundation, built with Astro and Tailwind CSS v4 for near-zero JavaScript and fast, SEO-friendly pages. Publications, events/programmes, and research centres are all managed as Markdown content collections validated against typed frontmatter schemas at build time, so publishing a new entry needs no code changes. Includes membership and contact forms via Web3Forms, a donate section with UPI QR code, and dedicated book detail pages.',
+    image: '/placeholder-project.jpg',
+    technologies: ['Astro', 'Tailwind CSS v4', 'TypeScript', 'Markdown Content Collections', 'Web3Forms', 'Static Site Generation'],
+    demoUrl: 'https://rudrashodhfoundation.com',
+    personal: true,
+  },
+  {
     id: 'p7',
     title: 'Zoho & HubSpot Multi-Org Integration',
     description: 'Developed scalable integration supporting multiple Zoho organizations with HubSpot. Implemented 2-way data synchronization, multi-tenant architecture, and automated data mapping across different organizational structures.',
