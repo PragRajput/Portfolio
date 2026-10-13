@@ -57,7 +57,7 @@ Both pipelines trigger only when their respective directory changes.
 | Secret | Used by | Where to get it |
 |---|---|---|
 | `FIREBASE_SERVICE_ACCOUNT` | frontend | Firebase Console → Project Settings → Service Accounts → Generate key |
-| `VITE_API_URL` | frontend build | `https://my-portfolio-server-11ub.vercel.app` |
+| `VITE_API_URL` | frontend build | Your deployed Vercel server URL (Vercel dashboard → project → Domains) |
 
 > Server env vars (`RESEND_API_KEY`, `FROM_EMAIL`, etc.) are managed directly in Vercel dashboard → project → Settings → Environment Variables
 
