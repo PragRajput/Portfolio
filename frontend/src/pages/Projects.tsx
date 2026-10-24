@@ -99,6 +99,15 @@ const projects: Project[] = [
     personal: true,
   },
   {
+    id: 'p21',
+    title: 'Tracely: Web Analytics with AI Insights',
+    description: 'Self-hosted web analytics platform with AI insights. A single script tag tracks sessions, page and section views, clicks, scroll depth, form submits/abandons, logins and JS errors on any website, plus rage-click and dead-click detection for UX friction. Real-time dashboard over Socket.io with Recharts visualizations, and Claude generates written insights from the collected data. Dependency-free vanilla JS tracker, JWT-authenticated multi-project dashboard. Deployed on EC2 (API), S3 and CloudFront.',
+    image: '/placeholder-project.jpg',
+    technologies: ['Node.js', 'Express', 'MongoDB', 'Socket.io', 'React', 'Vite', 'Recharts', 'Claude API', 'JWT', 'AWS EC2', 'S3', 'CloudFront'],
+    demoUrl: 'https://d1u3ng3n6cixi8.cloudfront.net/',
+    personal: true,
+  },
+  {
     id: '10',
     title: 'DailyPing: VS Code Dev Tracker',
     description: 'VS Code extension that silently tracks coding activity in the background and generates AI-powered standup summaries with zero interruption. Local dashboard shows hourly productivity charts and per-project language breakdown. Fully private: no cloud sync, no telemetry, all data stays on your machine.',
