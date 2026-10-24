@@ -4,6 +4,15 @@ import type { Project } from '@/types';
 
 const projects: Project[] = [
   {
+    id: 'p20',
+    title: 'Memento: Browser Video Editor',
+    description: 'Studio-grade video editor that runs 100% client-side in the browser via WebCodecs and Mediabunny, no uploads, no server processing. Multi-track timeline (stacked video, audio, overlay, and text lanes) with frame-accurate trim/split, 13 cinematic transitions, keyframe animation, and 10 color-grading presets. Web Audio DSP effects (reverb, delay, bass/treble boost, bandpass, ring modulator) across multi-lane audio tracks, plus a multi-category overlay system (PiP, film grain, vignette, lower thirds) and live-draggable text titles. Hardware-accelerated MP4 export (H.264/HEVC/VP9/AV1) with IndexedDB-backed auto-save and full undo/redo history.',
+    image: '/placeholder-project.jpg',
+    technologies: ['React 19', 'TypeScript', 'Vite', 'WebCodecs', 'Mediabunny', 'Web Audio API', 'IndexedDB', 'Canvas API'],
+    demoUrl: 'https://pragrajput.github.io/Memento-Pro-Studio/',
+    personal: true,
+  },
+  {
     id: '11',
     title: 'LexigoAI: Vocabulary Learning App',
     description: 'AI-powered vocabulary and language learning app. Surfaces 3 fresh AI-generated words daily, lets you search or generate any word with definitions, synonyms, antonyms, and translations. Quiz yourself across 4 modes (flashcard, multiple choice, fill-in-blank, match) plus a Random AI Quiz. Per-account word and sentence collections with full attempt history.',
